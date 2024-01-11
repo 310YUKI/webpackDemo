@@ -1,0 +1,147 @@
+@charset "UTF-8";
+/* 全体設定 */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "游ゴシック体", "YuGothic", "游ゴシック", "Yu Gothic", sans-serif;
+}
+
+body {
+  color: #222;
+  font-size: clamp(0.875rem, 0.831rem + 0.188vw, 1rem);
+  line-height: 1.8;
+  letter-spacing: 0.06em;
+}
+body.is-open {
+  overflow: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: #222;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:link {
+  color: #222;
+}
+a:visited {
+  color: #222;
+}
+a:hover {
+  color: var(--corporate-color);
+}
+a:active {
+  color: var(--corporate-color);
+}
+
+:root {
+  --corporate-color: #4b0082;
+  --corporate-color--white: #e6c4ff;
+  --corporate-color--vivid: #8900f5;
+  --white-font: #fff;
+  --main-color: var(--white-font);
+  --sub-color: #eeedef;
+}
+
+img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.c-bold {
+  font-weight: bold;
+}
+@media screen and (max-width: 818px) {
+  .c-pc-only {
+    display: none;
+  }
+}
+.c-sp-only {
+  display: none;
+}
+@media screen and (max-width: 818px) {
+  .c-sp-only {
+    display: block;
+  }
+}
+
+.openbtn {
+  position: relative;
+  background: #57a2c7;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+.openbtn span {
+  display: inline-block;
+  transition: all 0.4s;
+  position: absolute;
+  left: 14px;
+  height: 3px;
+  border-radius: 2px;
+  background: #fff;
+  width: 45%;
+}
+.openbtn span:nth-of-type(1) {
+  top: 15px;
+}
+.openbtn span:nth-of-type(2) {
+  top: 23px;
+}
+.openbtn span:nth-of-type(3) {
+  top: 31px;
+}
+.openbtn.active span:nth-of-type(1) {
+  top: 18px;
+  left: 18px;
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+}
+.openbtn.active span:nth-of-type(2) {
+  opacity: 0;
+}
+.openbtn.active span:nth-of-type(3) {
+  top: 30px;
+  left: 18px;
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+}
+
+.nav__wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+@media screen and (max-width: 818px) {
+  .nav__wrapper {
+    height: 100%;
+  }
+}
+.nav__wrapper.active {
+  z-index: 1000;
+}
+.nav__container .active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #fff;
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: all 0.4s;
+  padding: 50px 0;
+}
+@media screen and (max-width: 818px) {
+  .nav__container .active {
+    padding: 30px 0;
+  }
+}
+.nav__container .active.active {
+  transform: translateX(0);
+}/*# sourceMappingURL=settings.css.map */
