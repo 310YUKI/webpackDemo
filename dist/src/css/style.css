@@ -1,0 +1,17 @@
+/*!*********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/style.css ***!
+  \*********************************************************************/
+@charset "UTF-8";
+* {
+  margin:0;
+  padding:0;
+  font-family:"游ゴシック体","YuGothic","游ゴシック","Yu Gothic",sans-serif
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0.67em 0;
+  color: red;
+}
+
