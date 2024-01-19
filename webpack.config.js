@@ -5,13 +5,13 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   mode: "development",
-  devtool: "source-map",
+  devtool: "eval-source-map",
   entry: {
     main: "./src/js/main.js",
   },
   output: {
     path: path.resolve(__dirname, "./dist"),
-    filename: "./js/[name].js",
+    filename: "./js/[name]-[contenthash].js",
   },
   module: {
     rules: [
@@ -49,7 +49,7 @@ module.exports = {
         test: /\.(png|jpe?g)$/,
         type: "asset/resource",
         generator: {
-          filename: "./img/[name][ext]",
+          filename: "./img/[name]-[contenthash][ext]",
         },
         use: [
           {
@@ -90,7 +90,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "./css/style.css",
+      filename: "./css/style-[contenthash].css",
     }),
     new HtmlWebpackPlugin({
       template: "./src/templates/index.pug",

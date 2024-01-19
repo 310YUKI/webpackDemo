@@ -1,2 +1,0 @@
-(()=>{"use strict";new class{constructor(e){this.name=e}greet(){console.log("hello,"+this.name+"!")}}("John").greet();let e=document.querySelector("h2"),o=(new Date).getHours();e.innerHTML=o<12?"Good Morning":o<18?"Good Afternoon":"Good Evening"})();
-//# sourceMappingURL=main.js.map
