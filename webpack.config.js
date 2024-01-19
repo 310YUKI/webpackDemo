@@ -14,13 +14,16 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css/,
+        test: /\.(css|sass|scss)/,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
           },
           {
             loader: "css-loader",
+          },
+          {
+            loader: "sass-loader",
           },
         ],
       },
@@ -66,8 +69,11 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       template: "./src/templates/access.pug",
-      filename: "access.html"
+      filename: "access.html",
     }),
     new CleanWebpackPlugin(),
   ],
+  devServer: {
+    static: path.resolve(__dirname, "src"),
+  },
 };
