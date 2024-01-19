@@ -24,6 +24,22 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(png|jpe?g)$/,
+        type: "asset/resource",
+        generator: {
+          filename: "./img/[name][ext]",
+        },
+        // use: [
+        //   {
+        //     loader: "file-loader",
+        //     options: {
+        //       esModule: false,
+        //       name: "./img/[name].[ext]",
+        //     },
+        //   },
+        // ],
+      },
     ],
   },
   plugins: [
