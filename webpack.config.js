@@ -4,6 +4,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
+  mode: "development",
+  devtool: "source-map",
   entry: {
     main: "./src/js/main.js",
   },
@@ -14,6 +16,19 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        // use: ["babel-loader"],
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: [["@babel/preset-env", { targets: "> 0.25%, not dead" }]],
+            },
+          },
+        ],
+      },
+      {
         test: /\.(css|sass|scss)/,
         use: [
           {
@@ -21,6 +36,9 @@ module.exports = {
           },
           {
             loader: "css-loader",
+            options: {
+              sourceMap: false,
+            },
           },
           {
             loader: "sass-loader",
@@ -33,6 +51,17 @@ module.exports = {
         generator: {
           filename: "./img/[name][ext]",
         },
+        use: [
+          {
+            loader: "image-webpack-loader",
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 65,
+              },
+            },
+          },
+        ],
         // use: [
         //   {
         //     loader: "file-loader",
@@ -61,7 +90,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "./src/css/style.css",
+      filename: "./css/style.css",
     }),
     new HtmlWebpackPlugin({
       template: "./src/templates/index.pug",
@@ -74,6 +103,6 @@ module.exports = {
     new CleanWebpackPlugin(),
   ],
   devServer: {
-    static: path.resolve(__dirname, "src"),
+    static: path.resolve(__dirname, "dist"),
   },
 };
