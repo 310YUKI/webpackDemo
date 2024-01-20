@@ -1,22 +1,24 @@
 @charset "UTF-8";
 @use "reset.css";
 @use "footer.scss";
+
+// メディアクエリの設定
+$sp: 768px;
+$hs: 1024px;
+
+@mixin sp {
+  @media screen and (max-width: ($sp)) {
+    @content;
+  }
+}
+@mixin hs {
+  @media screen and (max-width: ($hs)) {
+    @content;
+  }
+}
+/* 全体設定 */
 * {
-  margin:0;
-  padding:0;
-  font-family:"游ゴシック体","YuGothic","游ゴシック","Yu Gothic",sans-serif
-}
-
-h1 {
-  font-size: 2em;
-  font-weight: bold;
-  margin: 0.67em 0;
-  color: red;
-}
-
-.about{
-  background-image: url(../img/about.png);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  font-family: "游ゴシック体", "YuGothic", "游ゴシック", "Yu Gothic", sans-serif;
 }
